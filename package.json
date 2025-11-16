@@ -1,0 +1,13 @@
+{
+  "name": "gp-demo",
+  "private": true,
+  "workspaces": ["frontend", "backend"],
+  "scripts": {
+    "start": "concurrently \"npm run start --workspace=backend\" \"npm run start --workspace=frontend\"",
+    "start:all": "concurrently \"npm run start --workspace=backend\" \"npm run start --workspace=frontend\"",
+    "install:all": "npm install --workspaces"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.1"
+  }
+}

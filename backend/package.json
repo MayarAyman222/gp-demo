@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node index.js",
-     "start:all": "node index.js"
+    "start:all": "node index.js"
   },
   "keywords": [],
   "author": "",
@@ -14,13 +14,15 @@
   "description": "",
   "dependencies": {
     "@google-cloud/text-to-speech": "^6.4.0",
+    "@iamtraction/google-translate": "^2.0.1",
     "@prisma/client": "^6.19.0",
     "cors": "^2.8.5",
     "dotenv": "^17.2.3",
     "express": "^5.1.0",
     "google-tts-api": "^2.0.2",
     "gtts.js": "^1.0.1",
-    "prisma": "^6.19.0"
+    "prisma": "^6.19.0",
+    "uuid": "^3.4.0"
   },
   "prisma": {
     "seed": "node prisma/seed.js"

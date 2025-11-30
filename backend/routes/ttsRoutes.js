@@ -3,6 +3,6 @@ import { speakText } from "../controllers/ttsController.js";
 
 const router = express.Router();
 
-router.post("/tts", speakText);
+router.post("/", speakText);
 
 export default router;

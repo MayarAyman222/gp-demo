@@ -8,9 +8,23 @@ datasource db {
 }
 
 model Icon {
+  id         Int       @id @default(autoincrement())
+  title      String       
+  expression String
+  createdAt  DateTime  @default(now())
+  iconName   String    @default("")
+  category   String
+  subIcons   SubIcon[]
+}
+
+model SubIcon {
   id         Int      @id @default(autoincrement())
   title      String
   expression String
+  imageUrl   String
+  iconId     Int
   createdAt  DateTime @default(now())
-  iconName   String   @default("")
+  icon       Icon     @relation(fields: [iconId], references: [id])
+
+ //([title, iconId])
 }

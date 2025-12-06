@@ -1,7 +1,10 @@
 {
   "name": "gp-demo",
   "private": true,
-  "workspaces": ["frontend", "backend"],
+  "workspaces": [
+    "frontend",
+    "backend"
+  ],
   "scripts": {
     "start": "concurrently \"npm run start --workspace=backend\" \"npm run start --workspace=frontend\"",
     "start:all": "concurrently \"npm run start --workspace=backend\" \"npm run start --workspace=frontend\"",
@@ -9,5 +12,9 @@
   },
   "devDependencies": {
     "concurrently": "^8.2.1"
+  },
+  "dependencies": {
+    "react-slick": "^0.31.0",
+    "slick-carousel": "^1.8.1"
   }
 }

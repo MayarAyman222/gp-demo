@@ -1,18 +1,4 @@
-/*import translate from "google-translate-api-x";
-
-export const translateText = async (req, res) => {
-  try {
-    const { text, targetLang } = req.body;
-
-    const result = await translate(text, { to: targetLang });
-
-    res.json({
-      translated: result.text,
-    });
-  } catch (err) {
-    res.status(500).json({ message: "Translation error", error: err });
-  }
-};*/
+// controllers/translateController.js
 import translate from "@iamtraction/google-translate";
 
 export const translateText = async (req, res) => {
@@ -20,22 +6,20 @@ export const translateText = async (req, res) => {
     const { text, targetLang } = req.body;
 
     if (!text || !targetLang) {
-      return res.status(400).json({ message: "Missing text or targetLang" });
+      return res.status(400).json({ ok: false, message: "Missing text or targetLang" });
     }
 
     const result = await translate(text, { to: targetLang });
 
-    res.json({
+    return res.json({
+      ok: true,
       translatedText: result.text,
       detectedLang: result.from.language.iso,
       targetLang: targetLang
     });
 
-  } catch (error) {
-    console.error("Translation Error:", error);
-    res.status(500).json({
-      message: "Translation failed",
-      error: error.message,
-    });
+  } catch (err) {
+    console.error("Translate error:", err);
+    return res.status(500).json({ ok: false, message: err.message });
   }
 };

@@ -1,3 +1,4 @@
+// routes/translateRoutes.js
 import express from "express";
 import { translateText } from "../controllers/translateController.js";
 

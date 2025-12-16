@@ -8,23 +8,34 @@ datasource db {
 }
 
 model Icon {
-  id         Int       @id @default(autoincrement())
-  title      String        @unique  
-  expression String
-  createdAt  DateTime  @default(now())
-  iconName   String    @default("")
-  category   String
-  subIcons   SubIcon[]
+  id            Int       @id @default(autoincrement())
+  title_en      String    @unique
+  title_ar      String
+  title_fr      String
+  title_es      String
+  expression_en String
+  expression_ar String
+  expression_fr String
+  expression_es String
+  createdAt     DateTime  @default(now())
+  iconName      String    @default("")
+  category      String
+  subIcons      SubIcon[]
 }
 
 model SubIcon {
-  id         Int      @id @default(autoincrement())
-  title      String
-  expression String
-  imageUrl   String
-  iconId     Int
-  createdAt  DateTime @default(now())
-  icon       Icon     @relation(fields: [iconId], references: [id])
-  @@unique([title, iconId])
- //([title, iconId])
+  id            Int       @id @default(autoincrement())
+  title_en      String
+  title_ar      String
+  title_fr      String
+  title_es      String
+  expression_en String
+  expression_ar String
+  expression_fr String
+  expression_es String
+  imageUrl      String
+  iconId        Int
+  createdAt     DateTime  @default(now())
+  icon          Icon      @relation(fields: [iconId], references: [id])
+  @@unique([title_en, iconId])
 }

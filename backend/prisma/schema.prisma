@@ -9,7 +9,7 @@ datasource db {
 
 model Icon {
   id         Int       @id @default(autoincrement())
-  title      String       
+  title      String        @unique  
   expression String
   createdAt  DateTime  @default(now())
   iconName   String    @default("")
@@ -25,6 +25,6 @@ model SubIcon {
   iconId     Int
   createdAt  DateTime @default(now())
   icon       Icon     @relation(fields: [iconId], references: [id])
-
+  @@unique([title, iconId])
  //([title, iconId])
 }

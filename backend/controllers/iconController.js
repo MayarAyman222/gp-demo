@@ -260,9 +260,9 @@ export const deleteIcon = async (req, res) => {
 // Get single SubIcon by ID
 export const getSubIconById = async (req, res) => {
   try {
-    const { id } = req.params;
+    const { subIconId } = req.params;
     const subIcon = await prisma.subIcon.findUnique({
-      where: { id: parseInt(id) },
+      where: { id: parseInt(subIconId) },
       include: { icon: true }, // optional: include parent icon
     });
 

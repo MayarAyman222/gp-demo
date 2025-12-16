@@ -1,10 +1,9 @@
 import { PrismaClient } from "@prisma/client";
+import { icons, subIconsData } from "./data.js";
 const prisma = new PrismaClient();
- import { icons , subIconsData  } from "./data";
 
 
 async function main() {
- async function main() {
   console.log("Seeding main icons...");
 
   // Insert main icons
@@ -59,7 +58,7 @@ async function main() {
 
   console.log("All sub icons created.");
 }
-}
+
 main()
   .catch((e) => console.error(e))
   .finally(async () => {

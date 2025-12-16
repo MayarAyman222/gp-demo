@@ -1,7 +1,7 @@
 export const icons = [
     // ====== REAL LIFE ======
     { title: "Eating", expression: "I want to eat", iconName: "utensils", category: "Real Life" },
-    { title: "Drinking", expression: "I want to drink water", iconName: "coffee", category: "Real Life" },
+    { title: "Drinking", expression: "I want to drink ", iconName: "coffee", category: "Real Life" },
     { title: "Sleeping", expression: "I want to sleep", iconName: "bed", category: "Real Life" },
     { title: "Toilet", expression: "I need to go to the toilet", iconName: "toilet", category: "Real Life" },
     { title: "Shower", expression: "I want to take a shower", iconName: "shower", category: "Real Life" },
@@ -94,7 +94,7 @@ export const icons = [
       // ... add the rest of the foods here
     ],
     Drinking: [
-       { title: "Water", img: "https://cdn-icons-png.flaticon.com/128/427/427112.png" },
+       { title: "Water", img:"https://www.flaticon.com/free-icons/water" },
         { title: "Mango Juice", img: "https://cdn-icons-png.flaticon.com/512/590/590685.png" },
         { title: "Apple Juice", img: "https://cdn-icons-png.flaticon.com/512/1047/1047488.png" },
         { title: "Fayrouz", img: "https://cdn-icons-png.flaticon.com/512/2738/2738730.png" },
@@ -117,17 +117,17 @@ export const icons = [
       // ... add the rest of the drinks here
     ],
     Sleeping: [
-       { title: "Sleep 6 hours", img: "https://cdn-icons-png.flaticon.com/512/1046/1046857.png" },
-        { title: "Sleep 7 hours", img: "https://cdn-icons-png.flaticon.com/512/1046/1046857.png" },
-        { title: "Sleep 8 hours", img: "https://cdn-icons-png.flaticon.com/512/1046/1046857.png" },
-        { title: "Nap", img: "https://cdn-icons-png.flaticon.com/128/1702/1702344.png" },
-        { title: "Bed", img: "https://cdn-icons-png.flaticon.com/512/1046/1046857.png" },
+       { title: "6 hours", img: "https://cdn-icons-png.flaticon.com/512/1046/1046857.png" },
+        { title: " 7 hours", img: "https://cdn-icons-png.flaticon.com/512/1046/1046857.png" },
+        { title: " 8 hours", img: "https://cdn-icons-png.flaticon.com/512/1046/1046857.png" },
+        { title: "take Nap only", img: "https://cdn-icons-png.flaticon.com/128/1702/1702344.png" },
+        { title: "take me to the Bed", img: "https://cdn-icons-png.flaticon.com/512/1046/1046857.png" },
         { title: "Pillow", img: "https://cdn-icons-png.flaticon.com/512/3076/3076933.png" },
-        { title: "Blanket", img: "https://cdn-icons-png.flaticon.com/512/3076/3076934.png" },
-        { title: "Night Lamp", img: "https://cdn-icons-png.flaticon.com/512/3076/3076931.png" },
-        { title: "Relax", img: "https://cdn-icons-png.flaticon.com/512/1046/1046858.png" },
-        { title: "Tired", img: "https://cdn-icons-png.flaticon.com/512/3076/3076938.png" },
-        { title: "Wake Up", img: "https://cdn-icons-png.flaticon.com/512/1046/1046859.png" }
+        { title: "cover me by Blanket", img: "https://cdn-icons-png.flaticon.com/512/3076/3076934.png" },
+        { title: "turn off Night Lamp", img: "https://cdn-icons-png.flaticon.com/512/3076/3076931.png" },
+        { title: "for Relax", img: "https://cdn-icons-png.flaticon.com/512/1046/1046858.png" },
+        { title: "i feel Tired", img: "https://cdn-icons-png.flaticon.com/512/3076/3076938.png" },
+        { title: "to Wake Up early", img: "https://cdn-icons-png.flaticon.com/512/1046/1046859.png" }
       // ... add the rest of the sleeping items here
     ],
     "Get Dressed": [

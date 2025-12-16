@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import { getIconById } from "../api/iconApi"; // API بترجع icon مع subIcons
+import { getIconById } from "../api/iconApi"; 
 import { Modal, Button, Form } from "react-bootstrap";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
@@ -119,7 +119,7 @@ const SubIconDashboard = () => {
   return (
     <div className="container mt-4">
       <h1 className="text-center mb-4" style={{ color: "red", fontWeight: "bold" }}>
-        {icon?.title} SubIcons
+        {icon?.title} 
       </h1>
 
       {/* Controls */}
@@ -187,7 +187,7 @@ const SubIconDashboard = () => {
                 checked={selectedIds.includes(subIcon.id)}
                 onClick={(e) => e.stopPropagation()}
                 onChange={() => toggleSelect(subIcon.id)}
-                style={{ marginBottom: "10px" }}
+                style={{ marginBottom: "10px", marginRight:"230px" }}
               />
 
               {/* Image or Icon */}
@@ -196,7 +196,7 @@ const SubIconDashboard = () => {
                   src={subIcon.imageUrl}
                   alt={subIcon.title}
                   className="img-fluid mb-2"
-                  style={{ objectFit: "cover", height: "180px", width: "100%" }}
+                  style={{ objectFit: "cover", height: "230px", width: "100%" }}
                   onError={(e) => (e.target.src = "https://via.placeholder.com/250")}
                 />
               ) : (

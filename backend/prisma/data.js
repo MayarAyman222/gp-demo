@@ -37,6 +37,19 @@ export const icons = [
     category: "Real Life"
   },
   {
+    title_en: "Transport",
+    title_ar: "مواصلات",
+    title_fr: "Transport",
+    title_es: "Transporte",
+    expression_en: "I need to ride transportation",
+    expression_ar: "أحتاج لركوب المواصلات",
+    expression_fr: "J'ai besoin de prendre les transports",
+    expression_es: "Necesito usar transporte",
+    iconName: "fa-car", // FontAwesome icon
+    imgUrl: null,       // خليها null عشان نستخدم iconName
+    category: "RealLife"
+  },
+  {
     title_en: "Toilet",
     title_ar: "حمام",
     title_fr: "Toilette",
@@ -106,7 +119,7 @@ export const icons = [
     expression_fr: "J'ai besoin de mon médicament",
     expression_es: "Necesito mi medicina",
     iconName: "pills",
-    category: "Real Life"
+    category: "Reminder Me"
   },
   {
     title_en: "Doctor",
@@ -122,90 +135,164 @@ export const icons = [
   },
 
     // ====== FEELINGS ======
-     {
+  {
     title_en: "Happy",
-    title_ar: "سعيد",
-    title_fr: "Heureux",
-    title_es: "Feliz",
-    expression_en: "I feel happy",
-    expression_ar: "أشعر بالسعادة",
-    expression_fr: "Je me sens heureux",
-    expression_es: "Me siento feliz",
-    iconName: "face-smile",
+    title_ar: "مبسوط جدا",
+    title_fr: "Très heureux",
+    title_es: "Muy feliz",
+    expression_en: "I feel very happy",
+    expression_ar: "أشعر بسعادة كبيرة",
+    expression_fr: "Je me sens très heureux",
+    expression_es: "Me siento muy feliz",
+    imgUrl: "http://localhost:5000/public/Feelings/7.png",
     category: "Feelings"
   },
   {
     title_en: "Sad",
-    title_ar: "حزين",
+    title_ar: "زعلان",
     title_fr: "Triste",
     title_es: "Triste",
     expression_en: "I feel sad",
     expression_ar: "أشعر بالحزن",
     expression_fr: "Je me sens triste",
     expression_es: "Me siento triste",
-    iconName: "face-frown",
+    imgUrl: "http://localhost:5000/public/Feelings/3.png",
     category: "Feelings"
   },
   {
     title_en: "Angry",
-    title_ar: "غاضب",
-    title_fr: "En colère",
+    title_ar: "متعصب",
+    title_fr: "Fâché",
     title_es: "Enojado",
     expression_en: "I feel angry",
     expression_ar: "أشعر بالغضب",
-    expression_fr: "Je me sens en colère",
+    expression_fr: "Je me sens fâché",
     expression_es: "Me siento enojado",
-    iconName: "face-angry",
+    imgUrl: "http://localhost:5000/public/Feelings/6.png",
     category: "Feelings"
   },
   {
-    title_en: "Tired",
-    title_ar: "تعبان",
-    title_fr: "Fatigué",
-    title_es: "Cansado",
-    expression_en: "I feel tired",
-    expression_ar: "أشعر بالتعب",
-    expression_fr: "Je me sens fatigué",
-    expression_es: "Me siento cansado",
-    iconName: "bed",
+    title_en: "Crying",
+    title_ar: "بيعيط",
+    title_fr: "En pleurs",
+    title_es: "Llorando",
+    expression_en: "I am crying",
+    expression_ar: "أبكي",
+    expression_fr: "Je pleure",
+    expression_es: "Estoy llorando",
+    imgUrl: "http://localhost:5000/public/Feelings/4.png",
     category: "Feelings"
   },
   {
-    title_en: "Pain",
-    title_ar: "ألم",
-    title_fr: "Douleur",
-    title_es: "Dolor",
-    expression_en: "I am in pain",
-    expression_ar: "أشعر بالألم",
-    expression_fr: "J'ai mal",
-    expression_es: "Estoy en dolor",
-    iconName: "face-sad-tear",
+    title_en: "Thinking",
+    title_ar: "بيفكر",
+    title_fr: "Pensif",
+    title_es: "Pensando",
+    expression_en: "I am thinking",
+    expression_ar: "أفكر",
+    expression_fr: "Je réfléchis",
+    expression_es: "Estoy pensando",
+    imgUrl: "http://localhost:5000/public/Feelings/5.png",
     category: "Feelings"
   },
   {
-    title_en: "Scared",
+    title_en: "Angry2",
+    title_ar: "متعصب",
+    title_fr: "Fâché",
+    title_es: "Enojado",
+    expression_en: "I am very angry",
+    expression_ar: "أنا غاضب جدا",
+    expression_fr: "Je suis très fâché",
+    expression_es: "Estoy muy enojado",
+    imgUrl: "http://localhost:5000/public/Feelings/6.png",
+    category: "Feelings"
+  },
+  {
+    title_en: "In Love",
+    title_ar: "مبسوط ويرقص فيها",
+    title_fr: "Amoureux",
+    title_es: "Enamorando",
+    expression_en: "I feel in love",
+    expression_ar: "أشعر بالحب",
+    expression_fr: "Je suis amoureux",
+    expression_es: "Estoy enamorado",
+    imgUrl: "http://localhost:5000/public/Feelings/7.png",
+    category: "Feelings"
+  },
+  {
+    title_en: "Crying2",
+    title_ar: "بيعيط بسبب انه منهار",
+    title_fr: "En pleurs",
+    title_es: "Llorando",
+    expression_en: "I am crying badly",
+    expression_ar: "أبكي بسبب انهياري",
+    expression_fr: "Je pleure gravement",
+    expression_es: "Estoy llorando mucho",
+    imgUrl: "http://localhost:5000/public/Feelings/2.png",
+    category: "Feelings"
+  },
+  {
+    title_en: "Afraid",
     title_ar: "خائف",
     title_fr: "Effrayé",
     title_es: "Asustado",
-    expression_en: "I feel scared",
+    expression_en: "I feel afraid",
     expression_ar: "أشعر بالخوف",
     expression_fr: "J'ai peur",
     expression_es: "Me siento asustado",
-    iconName: "face-frown-open",
+    imgUrl: "http://localhost:5000/public/Feelings/3.png",
     category: "Feelings"
   },
   {
-    title_en: "Help",
-    title_ar: "مساعدة",
-    title_fr: "Aide",
-    title_es: "Ayuda",
-    expression_en: "I need help",
-    expression_ar: "أحتاج المساعدة",
-    expression_fr: "J'ai besoin d'aide",
-    expression_es: "Necesito ayuda",
-    iconName: "hands-raised",
+    title_en: "Eating",
+    title_ar: "بيستمتع بأكل الطعام",
+    title_fr: "En train de manger",
+    title_es: "Comiendo",
+    expression_en: "I enjoy eating",
+    expression_ar: "أستمتع بتناول الطعام",
+    expression_fr: "Je profite de manger",
+    expression_es: "Disfruto comiendo",
+    imgUrl: "http://localhost:5000/public/Feelings/10.png",
     category: "Feelings"
   },
+  {
+    title_en: "Broken",
+    title_ar: "مكسوف",
+    title_fr: "Brisé",
+    title_es: "Roto",
+    expression_en: "I feel broken",
+    expression_ar: "أشعر بالكسوف",
+    expression_fr: "Je me sens brisé",
+    expression_es: "Me siento roto",
+    imgUrl: "http://localhost:5000/public/Feelings/11.png",
+    category: "Feelings"
+  },
+  {
+    title_en: "Annoyed",
+    title_ar: "مضايق ومنزعج من الضوضاء",
+    title_fr: "Agacé",
+    title_es: "Molesto",
+    expression_en: "I feel annoyed",
+    expression_ar: "أشعر بالضيق والانزعاج من الضوضاء",
+    expression_fr: "Je me sens agacé",
+    expression_es: "Me siento molesto",
+    imgUrl: "http://localhost:5000/public/Feelings/12.png",
+    category: "Feelings"
+  },
+  {
+    title_en: "Distressed",
+    title_ar: "مدايق",
+    title_fr: "Stressé",
+    title_es: "Afligido",
+    expression_en: "I feel distressed",
+    expression_ar: "أشعر بالضيق",
+    expression_fr: "Je me sens stressé",
+    expression_es: "Me siento afligido",
+    imgUrl: "http://localhost:5000/public/Feelings/13.png",
+    category: "Feelings"
+  },
+
+
     // ====== COMMUNICATION ======
     {
     title_en: "Yes",
@@ -397,26 +484,8 @@ export const icons = [
     expression_en: "I want to go for a run", expression_ar: "أريد الذهاب للجري",
     expression_fr: "Je veux aller courir", expression_es: "Quiero salir a correr",
     iconName: "running", category: "Additional" },
-  { title_en: "Bike", title_ar: "ركوب الدراجة", title_fr: "Vélo", title_es: "Bicicleta",
-    expression_en: "I want to ride a bike", expression_ar: "أريد ركوب الدراجة",
-    expression_fr: "Je veux faire du vélo", expression_es: "Quiero montar en bicicleta",
-    iconName: "bicycle", category: "Additional" },
-  { title_en: "Car", title_ar: "السيارة", title_fr: "Voiture", title_es: "Coche",
-    expression_en: "I want to drive a car", expression_ar: "أريد قيادة السيارة",
-    expression_fr: "Je veux conduire une voiture", expression_es: "Quiero conducir un coche",
-    iconName: "car", category: "Additional" },
-  { title_en: "Bus", title_ar: "الحافلة", title_fr: "Bus", title_es: "Autobús",
-    expression_en: "I want to take the bus", expression_ar: "أريد ركوب الحافلة",
-    expression_fr: "Je veux prendre le bus", expression_es: "Quiero tomar el autobús",
-    iconName: "bus", category: "Additional" },
-  { title_en: "Train", title_ar: "القطار", title_fr: "Train", title_es: "Tren",
-    expression_en: "I want to take the train", expression_ar: "أريد ركوب القطار",
-    expression_fr: "Je veux prendre le train", expression_es: "Quiero tomar el tren",
-    iconName: "train", category: "Additional" },
-  { title_en: "Plane", title_ar: "الطائرة", title_fr: "Avion", title_es: "Avión",
-    expression_en: "I want to fly", expression_ar: "أريد السفر بالطائرة",
-    expression_fr: "Je veux voler", expression_es: "Quiero volar",
-    iconName: "plane", category: "Additional" },
+
+ 
   { title_en: "Shopping", title_ar: "التسوق", title_fr: "Shopping", title_es: "Compras",
     expression_en: "I want to go shopping", expression_ar: "أريد الذهاب للتسوق",
     expression_fr: "Je veux aller faire du shopping", expression_es: "Quiero ir de compras",
@@ -506,91 +575,50 @@ export const icons = [
     expression_fr: "Je veux me détendre", expression_es: "Quiero relajarme",
     iconName: "spa", category: "Additional" }
   ];
-/*
 
-
-https://cdn-icons-png.flaticon.com/128/14015/14015081.png
-
-https://cdn-icons-png.flaticon.com/128/5848/5848563.png
-
-https://cdn-icons-png.flaticon.com/128/6816/6816165.png
-
-https://cdn-icons-png.flaticon.com/512/2738/2738730.png
-
-https://cdn-icons-png.flaticon.com/128/3504/3504837.png
-
-https://cdn-icons-png.flaticon.com/128/924/924514.png
-
-https://cdn-icons-png.flaticon.com/128/590/590836.png
-
-https://cdn-icons-png.flaticon.com/128/869/869664.png
-
-https://cdn-icons-png.flaticon.com/128/1687/1687043.png
-
-https://cdn-icons-png.flaticon.com/128/1687/1687077.png
-
-https://cdn-icons-png.flaticon.com/128/5025/5025087.png
-
-https://cdn-icons-png.flaticon.com/128/732/732236.png
-
-https://cdn-icons-png.flaticon.com/128/2405/2405447.png
-
-https://cdn-icons-png.flaticon.com/512/2738/2738730.png
-
-https://cdn-icons-png.flaticon.com/128/184/184473.png
-
-https://cdn-icons-png.flaticon.com/128/17129/17129763.png
-
-https://cdn-icons-png.flaticon.com/128/14036/14036386.png
-
-https://cdn-icons-png.flaticon.com/128/11183/11183359.png
-
-https://cdn-icons-png.flaticon.com/128/8068/8068390.png
-
-https://cdn-icons-png.flaticon.com/128/10919/10919733.png
-
-https://cdn-icons-png.flaticon.com/128/2283/2283945.png
-
-https://cdn-icons-png.flaticon.com/128/6310/6310490.png
-
-https://cdn-icons-png.flaticon.com/128/2988/2988036.png
-
-https://cdn-icons-png.flaticon.com/128/1974/1974058.png
-
-https://cdn-icons-png.flaticon.com/128/2805/2805864.png
-
-https://cdn-icons-png.flaticon.com/128/141/141922.png
-
-https://cdn-icons-png.flaticon.com/128/1774/1774825.png
-
-https://cdn-icons-png.flaticon.com/128/6371/6371544.png*/
   export const subIconsData = {
-    Eating: [
-        { title_en: "Cucumber", title_ar: "خيار", title_fr: "Concombre", title_es: "Pepino", img: "https://cdn-icons-png.flaticon.com/512/7315/7315557.png" },
-    { title_en: "Pepper", title_ar: "فلفل", title_fr: "Poivron", title_es: "Pimiento", img: "https://cdn-icons-png.flaticon.com/512/3136/3136999.png" },
-    { title_en: "Tomato", title_ar: "طماطم", title_fr: "Tomate", title_es: "Tomate", img: "https://cdn-icons-png.flaticon.com/512/1202/1202125.png" },
-    { title_en: "Burger", title_ar: "برجر", title_fr: "Burger", title_es: "Hamburguesa", img: "https://cdn-icons-png.flaticon.com/512/1046/1046784.png" },
-    { title_en: "Orange", title_ar: "برتقال", title_fr: "Orange", title_es: "Naranja", img: "https://cdn-icons-png.flaticon.com/512/1728/1728765.png" },
-    { title_en: "Banana", title_ar: "موز", title_fr: "Banane", title_es: "Plátano", img: "https://cdn-icons-png.flaticon.com/512/2494/2494112.png" },
-    { title_en: "Rice", title_ar: "أرز", title_fr: "Riz", title_es: "Arroz", img: "https://cdn-icons-png.flaticon.com/128/1531/1531385.png" },
-    { title_en: "Pasta", title_ar: "معكرونة", title_fr: "Pâtes", title_es: "Pasta", img: "https://cdn-icons-png.flaticon.com/128/3480/3480618.png" },
-    { title_en: "Chicken", title_ar: "دجاج", title_fr: "Poulet", title_es: "Pollo", img: "https://cdn-icons-png.flaticon.com/128/1046/1046751.png" },
-    { title_en: "Meat", title_ar: "لحم", title_fr: "Viande", title_es: "Carne", img: "https://cdn-icons-png.flaticon.com/128/1046/1046769.png" },
-    { title_en: "Fish", title_ar: "سمك", title_fr: "Poisson", title_es: "Pescado", img: "https://cdn-icons-png.flaticon.com/128/10507/10507711.png" },
-    { title_en: "Eggs", title_ar: "بيض", title_fr: "Œufs", title_es: "Huevos", img: "https://cdn-icons-png.flaticon.com/128/17432/17432658.png" },
-    { title_en: "Cheese", title_ar: "جبن", title_fr: "Fromage", title_es: "Queso", img: "https://cdn-icons-png.flaticon.com/128/819/819827.png" },
-    { title_en: "Bread", title_ar: "خبز", title_fr: "Pain", title_es: "Pan", img: "https://cdn-icons-png.flaticon.com/128/7093/7093198.png" },
-    { title_en: "Pizza", title_ar: "بيتزا", title_fr: "Pizza", title_es: "Pizza", img: "https://cdn-icons-png.flaticon.com/128/9633/9633377.png" },
-    { title_en: "Apple", title_ar: "تفاح", title_fr: "Pomme", title_es: "Manzana", img: "https://cdn-icons-png.flaticon.com/128/415/415733.png" },
-    { title_en: "Mango", title_ar: "مانجو", title_fr: "Mangue", title_es: "Mango", img: "https://cdn-icons-png.flaticon.com/128/9432/9432974.png" },
-    { title_en: "Watermelon", title_ar: "بطيخ", title_fr: "Pastèque", title_es: "Sandía", img: "https://cdn-icons-png.flaticon.com/128/5582/5582706.png" },
-    { title_en: "Grapes", title_ar: "عنب", title_fr: "Raisins", title_es: "Uvas", img: "https://cdn-icons-png.flaticon.com/128/5376/5376172.png" },
-     // ... add the rest of the foods here
-    ],
+  Eating: [
+    { title_en: "Apple", title_ar: "تفاح", title_fr: "Pomme", title_es: "Manzana", img: "http://localhost:5000/public/Food and Drink/apple.png" },
+    { title_en: "Biscuit", title_ar: "بسكوت", title_fr: "Biscuit", title_es: "Galleta", img: "http://localhost:5000/public/Food and Drink/baskot.png" },
+    { title_en: "Batek", title_ar: "باتيك", title_fr: "Batek", title_es: "Batek", img: "http://localhost:5000/public/Food and Drink/batek.png" },
+    { title_en: "Potato", title_ar: "بطاطس", title_fr: "Pomme de terre", title_es: "Patata", img: "http://localhost:5000/public/Food and Drink/btats.png" },
+    { title_en: "Chocolate", title_ar: "شيكولاتة", title_fr: "Chocolat", title_es: "Chocolate", img: "http://localhost:5000/public/Food and Drink/chocolate.png" },
+    { title_en: "Egg", title_ar: "بيض", title_fr: "Œuf", title_es: "Huevo", img: "http://localhost:5000/public/Food and Drink/egg.png" },
+    { title_en: "Grapes", title_ar: "عنب", title_fr: "Raisin", title_es: "Uvas", img: "http://localhost:5000/public/Food and Drink/enab.png" },
+    { title_en: "Bread", title_ar: "عِش", title_fr: "Pain", title_es: "Pan", img: "http://localhost:5000/public/Food and Drink/esh.png" },
+    { title_en: "Fish", title_ar: "سمك", title_fr: "Poisson", title_es: "Pescado", img: "http://localhost:5000/public/Food and Drink/fish.png" },
+    { title_en: "Chicken", title_ar: "فراخ", title_fr: "Poulet", title_es: "Pollo", img: "http://localhost:5000/public/Food and Drink/frahk.png" },
+    { title_en: "Strawberry", title_ar: "فراولة", title_fr: "Fraise", title_es: "Fresa", img: "http://localhost:5000/public/Food and Drink/frawla.png" },
+    { title_en: "Popcorn", title_ar: "فشار", title_fr: "Pop-corn", title_es: "Palomitas", img: "http://localhost:5000/public/Food and Drink/fshaar.png" },
+    { title_en: "Carrot", title_ar: "جزر", title_fr: "Carotte", title_es: "Zanahoria", img: "http://localhost:5000/public/Food and Drink/gazr.png" },
+    { title_en: "Cheese", title_ar: "جبنة", title_fr: "Fromage", title_es: "Queso", img: "http://localhost:5000/public/Food and Drink/gebna.png" },
+    { title_en: "Guava", title_ar: "جوافة", title_fr: "Goyave", title_es: "Guayaba", img: "http://localhost:5000/public/Food and Drink/gwafa.png" },
+    { title_en: "Ice Cream", title_ar: "آيس كريم", title_fr: "Glace", title_es: "Helado", img: "http://localhost:5000/public/Food and Drink/icecream.png" },
+    { title_en: "Milk Drink", title_ar: "كس", title_fr: "Boisson au lait", title_es: "Bebida láctea", img: "http://localhost:5000/public/Food and Drink/kas.png" },
+    { title_en: "Coke", title_ar: "كوك", title_fr: "Coca", title_es: "Coca", img: "http://localhost:5000/public/Food and Drink/kok.png" },
+    { title_en: "Pear", title_ar: "كمثرى", title_fr: "Poire", title_es: "Pera", img: "http://localhost:5000/public/Food and Drink/komtra.png" },
+    { title_en: "Cucumber", title_ar: "خيار", title_fr: "Concombre", title_es: "Pepino", img: "http://localhost:5000/public/Food and Drink/kyar.png" },
+    { title_en: "Yogurt", title_ar: "لبن", title_fr: "Lait", title_es: "Leche", img: "http://localhost:5000/public/Food and Drink/labn.png" },
+    { title_en: "Mango", title_ar: "مانجو", title_fr: "Mangue", title_es: "Mango", img: "http://localhost:5000/public/Food and Drink/mango.png" },
+    { title_en: "Jam", title_ar: "مربى", title_fr: "Confiture", title_es: "Mermelada", img: "http://localhost:5000/public/Food and Drink/marba.png" },
+    { title_en: "Meat", title_ar: "لحم", title_fr: "Viande", title_es: "Carne", img: "http://localhost:5000/public/Food and Drink/meat.png" },
+    { title_en: "Mozzarella", title_ar: "موزاريلا", title_fr: "Mozzarella", title_es: "Mozzarella", img: "http://localhost:5000/public/Food and Drink/mozz.png" },
+    { title_en: "Orange", title_ar: "برتقال", title_fr: "Orange", title_es: "Naranja", img: "http://localhost:5000/public/Food and Drink/orange.png" },
+    { title_en: "Pizza", title_ar: "بيتزا", title_fr: "Pizza", title_es: "Pizza", img: "http://localhost:5000/public/Food and Drink/pizza.png" },
+    { title_en: "Rice", title_ar: "أرز", title_fr: "Riz", title_es: "Arroz", img: "http://localhost:5000/public/Food and Drink/roz.png" },
+    { title_en: "Sandwich", title_ar: "ساندوتش", title_fr: "Sandwich", title_es: "Sándwich", img: "http://localhost:5000/public/Food and Drink/sandwich.png" },
+    { title_en: "Soup", title_ar: "شوربة", title_fr: "Soupe", title_es: "Sopa", img: "http://localhost:5000/public/Food and Drink/shorba.png" },
+    { title_en: "Tomato", title_ar: "طماطم", title_fr: "Tomate", title_es: "Tomate", img: "http://localhost:5000/public/Food and Drink/tomato.png" },
+    { title_en: "Vegetables", title_ar: "خضروات", title_fr: "Légumes", title_es: "Verduras", img: "http://localhost:5000/public/Food and Drink/vegetablesz.png" },
+    { title_en: "Water", title_ar: "مياه", title_fr: "Eau", title_es: "Agua", img: "http://localhost:5000/public/Food and Drink/water.png" },
+    { title_en: "Yogurt", title_ar: "زبادي", title_fr: "Yaourt", title_es: "Yogur", img: "http://localhost:5000/public/Food and Drink/zbady.png" },
+  ],
     Drinking: [
-         { title_en: "Water", title_ar: "ماء", title_fr: "Eau", title_es: "Agua", img:"https://cdn-icons-png.flaticon.com/256/11654/11654241.png" },
-    { title_en: "Mango Juice", title_ar: "عصير مانجو", title_fr: "Jus de mangue", title_es: "Jugo de mango", img: "https://cdn-icons-png.flaticon.com/256/10630/10630173.png" },
-    { title_en: "Apple Juice", title_ar: "عصير تفاح", title_fr: "Jus de pomme", title_es: "Jugo de manzana", img: "https://cdn-icons-png.flaticon.com/128/3414/3414335.png" },
+         { title_en: "Water", title_ar: "ماء", title_fr: "Eau", title_es: "Agua", img:"http://localhost:5000/public/Food and Drink/water.png" },
+    { title_en: "Mango Juice", title_ar: "عصير مانجو", title_fr: "Jus de mangue", title_es: "Jugo de mango", img: "http://localhost:5000/public/Food and Drink/mango.png" },
+    { title_en: "Apple Juice", title_ar: "عصير تفاح", title_fr: "Jus de pomme", title_es: "Jugo de manzana", img: "http://localhost:5000/public/Food and Drink/apple.png" },
+        { title_en: "Guava", title_ar: "جوافة", title_fr: "Goyave", title_es: "Guayaba", img: "http://localhost:5000/public/Food and Drink/gwafa.png" },
+          { title_en: "milk", title_ar: "لبن", title_fr: "Lait", title_es: "Leche", img: "http://localhost:5000/public/Food and Drink/labn.png" },
     { title_en: "Fayrouz", title_ar: "فيروز", title_fr: "Fayrouz", title_es: "Fayrouz", img: "https://cdn-icons-png.flaticon.com/128/14369/14369766.png" },
     { title_en: "Schweppes", title_ar: "شويبس", title_fr: "Schweppes", title_es: "Schweppes", img: "https://cdn-icons-png.flaticon.com/128/14015/14015081.png" },
     { title_en: "Pomegranate Juice", title_ar: "عصير رمان", title_fr: "Jus de grenade", title_es: "Jugo de granada", img: "https://cdn-icons-png.flaticon.com/512/7665/7665034.png" },
@@ -599,15 +627,14 @@ https://cdn-icons-png.flaticon.com/128/6371/6371544.png*/
     { title_en: "Tea", title_ar: "شاي", title_fr: "Thé", title_es: "Té", img: "https://cdn-icons-png.flaticon.com/512/1046/1046783.png" },
     { title_en: "Coffee", title_ar: "قهوة", title_fr: "Café", title_es: "Café", img: "https://cdn-icons-png.flaticon.com/512/1046/1046787.png" },
     { title_en: "Nescafe", title_ar: "نسكافيه", title_fr: "Nescafé", title_es: "Nescafé", img: "https://cdn-icons-png.flaticon.com/512/904/904535.png" },
-    { title_en: "Milk", title_ar: "حليب", title_fr: "Lait", title_es: "Leche", img: "https://cdn-icons-png.flaticon.com/512/1046/1046788.png" },
-    { title_en: "Strawberry Juice", title_ar: "عصير فراولة", title_fr: "Jus de fraise", title_es: "Jugo de fresa", img: "https://cdn-icons-png.flaticon.com/512/590/590697.png" },
-    { title_en: "Orange Juice", title_ar: "عصير برتقال", title_fr: "Jus d'orange", title_es: "Jugo de naranja", img: "https://cdn-icons-png.flaticon.com/512/2909/2909765.png" },
+    { title_en: "Strawberry Juice", title_ar: "عصير فراولة", title_fr: "Jus de fraise", title_es: "Jugo de fresa", img: "http://localhost:5000/public/Food and Drink/frawla.png" },
+    { title_en: "Orange Juice", title_ar: "عصير برتقال", title_fr: "Jus d'orange", title_es: "Jugo de naranja", img: "http://localhost:5000/public/Food and Drink/orange.png" },
     { title_en: "Lemon Juice", title_ar: "عصير ليمون", title_fr: "Jus de citron", title_es: "Jugo de limón", img: "https://cdn-icons-png.flaticon.com/512/7665/7665029.png" },
     { title_en: "Pepsi", title_ar: "بيبسي", title_fr: "Pepsi", title_es: "Pepsi", img: "https://cdn-icons-png.flaticon.com/512/2738/2738730.png" },
     { title_en: "CocaCola", title_ar: "كوكاكولا", title_fr: "Coca-Cola", title_es: "Coca-Cola", img: "https://cdn-icons-png.flaticon.com/512/2738/2738730.png" },
     { title_en: "7up", title_ar: "سبعة أب", title_fr: "7up", title_es: "7up", img: "https://cdn-icons-png.flaticon.com/512/2738/2738730.png" },
     { title_en: "Energy Drink", title_ar: "مشروب طاقة", title_fr: "Boisson énergisante", title_es: "Bebida energética", img: "https://cdn-icons-png.flaticon.com/512/3595/3595451.png" },
-    { title_en: "Hot Chocolate", title_ar: "شوكولاتة ساخنة", title_fr: "Chocolat chaud", title_es: "Chocolate caliente", img: "https://cdn-icons-png.flaticon.com/512/1046/1046787.png" },
+    { title_en: "Hot Chocolate", title_ar: "شوكولاتة ساخنة", title_fr: "Chocolat chaud", title_es: "Chocolate caliente", img: "http://localhost:5000/public/Food and Drink/chocolate.png" },
       // ... add the rest of the drinks here
     ],
     Sleeping: [
@@ -624,30 +651,31 @@ https://cdn-icons-png.flaticon.com/128/6371/6371544.png*/
     { title_en: "To Wake Up Early", title_ar: "للاستيقاظ مبكرًا", title_fr: "Pour se réveiller tôt", title_es: "Para despertarse temprano", img: "https://cdn-icons-png.flaticon.com/512/1046/1046859.png" },
       // ... add the rest of the sleeping items here
     ],
-    "Get Dressed": [
-       { title_en: "Skirt", title_ar: "تنورة", title_fr: "Jupe", title_es: "Falda", img: "https://cdn-icons-png.flaticon.com/512/892/892458.png" },
-    { title_en: "Scarf", title_ar: "وشاح", title_fr: "Écharpe", title_es: "Bufanda", img: "https://cdn-icons-png.flaticon.com/512/892/892430.png" },
-    { title_en: "Pants", title_ar: "بنطلون", title_fr: "Pantalon", title_es: "Pantalón", img: "https://cdn-icons-png.flaticon.com/512/892/892469.png" },
-    { title_en: "T-Shirt", title_ar: "تيشيرت", title_fr: "T-shirt", title_es: "Camiseta", img: "https://cdn-icons-png.flaticon.com/512/892/892555.png" },
-    { title_en: "Shirt", title_ar: "قميص", title_fr: "Chemise", title_es: "Camisa", img: "https://cdn-icons-png.flaticon.com/512/892/892492.png" },
-    { title_en: "Glasses", title_ar: "نظارات", title_fr: "Lunettes", title_es: "Gafas", img: "https://cdn-icons-png.flaticon.com/512/892/892615.png" },
-    { title_en: "Sunglasses", title_ar: "نظارات شمسية", title_fr: "Lunettes de soleil", title_es: "Gafas de sol", img: "https://cdn-icons-png.flaticon.com/512/892/892614.png" },
-    { title_en: "Shoes", title_ar: "أحذية", title_fr: "Chaussures", title_es: "Zapatos", img: "https://cdn-icons-png.flaticon.com/512/892/892399.png" },
-    { title_en: "Jacket", title_ar: "سترة", title_fr: "Veste", title_es: "Chaqueta", img: "https://cdn-icons-png.flaticon.com/512/892/892501.png" },
-    { title_en: "Coat", title_ar: "معطف", title_fr: "Manteau", title_es: "Abrigo", img: "https://cdn-icons-png.flaticon.com/512/892/892435.png" },
-    { title_en: "Hat", title_ar: "قبعة", title_fr: "Chapeau", title_es: "Sombrero", img: "https://cdn-icons-png.flaticon.com/512/892/892420.png" },
-    { title_en: "Dress", title_ar: "فستان", title_fr: "Robe", title_es: "Vestido", img: "https://cdn-icons-png.flaticon.com/512/892/892554.png" },
-    { title_en: "Sweater", title_ar: "سويتر", title_fr: "Pull", title_es: "Suéter", img: "https://cdn-icons-png.flaticon.com/512/892/892511.png" },
-    { title_en: "Shorts", title_ar: "شورت", title_fr: "Short", title_es: "Pantalones cortos", img: "https://cdn-icons-png.flaticon.com/512/892/892470.png" },
-    { title_en: "Socks", title_ar: "جوارب", title_fr: "Chaussettes", title_es: "Calcetines", img: "https://cdn-icons-png.flaticon.com/512/892/892421.png" },
-    { title_en: "Backpack", title_ar: "حقيبة ظهر", title_fr: "Sac à dos", title_es: "Mochila", img: "https://cdn-icons-png.flaticon.com/512/892/892420.png" },
-    { title_en: "Belt", title_ar: "حزام", title_fr: "Ceinture", title_es: "Cinturón", img: "https://cdn-icons-png.flaticon.com/512/892/892449.png" },
-    { title_en: "Tie", title_ar: "ربطة عنق", title_fr: "Cravate", title_es: "Corbata", img: "https://cdn-icons-png.flaticon.com/512/892/892452.png" },
-    { title_en: "Hoodie", title_ar: "هودي", title_fr: "Sweat à capuche", title_es: "Sudadera con capucha", img: "https://cdn-icons-png.flaticon.com/512/892/892508.png" },
-    { title_en: "Cap", title_ar: "قبعة", title_fr: "Casquette", title_es: "Gorra", img: "https://cdn-icons-png.flaticon.com/512/892/892419.png" },
-      // ... add the rest of the clothing items here
-    ],
-    Medicine: [
+     "Get Dressed": [
+  { title_en: "Shirt", title_ar: "قميص داخلي", title_fr: "Chemise", title_es: "Camisa interior", img: "http://localhost:5000/public/Clothes/2amis.png" },
+  { title_en: "Suit", title_ar: "بدلة", title_fr: "Costume", title_es: "Traje", img: "http://localhost:5000/public/Clothes/Badla.png" },
+  { title_en: "Blouse", title_ar: "بلوزة", title_fr: "Blouse", title_es: "Blusa", img: "http://localhost:5000/public/Clothes/Blouse.png" },
+  { title_en: "Pants", title_ar: "بنطلون", title_fr: "Pantalon", title_es: "Pantalón", img: "http://localhost:5000/public/Clothes/Bntlon.png" },
+  { title_en: "Dress", title_ar: "فستان", title_fr: "Robe", title_es: "Vestido", img: "http://localhost:5000/public/Clothes/Dress.png" },
+  { title_en: "Jacket", title_ar: "سترة", title_fr: "Veste", title_es: "Chaqueta", img: "http://localhost:5000/public/Clothes/Jacket.png" },
+  { title_en: "Pajamas", title_ar: "بيجامة", title_fr: "Pyjama", title_es: "Pijama", img: "http://localhost:5000/public/Clothes/Pijama.png" },
+  { title_en: "Shoes", title_ar: "أحذية", title_fr: "Chaussures", title_es: "Zapatos", img: "http://localhost:5000/public/Clothes/Shoes.png" },
+  { title_en: "Socks", title_ar: "جوارب", title_fr: "Chaussettes", title_es: "Calcetines", img: "http://localhost:5000/public/Clothes/Shrab.png" },
+  { title_en: "Skirt", title_ar: "تنورة", title_fr: "Jupe", title_es: "Falda", img: "http://localhost:5000/public/Clothes/Skirt.png" }
+],
+ Transport: [
+    { title_en: "Bicycle", title_ar: "دراجة", title_fr: "Vélo", title_es: "Bicicleta", img: "http://localhost:5000/public/Transport/1.png" },
+    { title_en: "Taxi", title_ar: "تاكسي", title_fr: "Taxi", title_es: "Taxi", img: "http://localhost:5000/public/Transport/2.png" },
+    { title_en: "Motorcycle", title_ar: "دراجة نارية", title_fr: "Moto", title_es: "Motocicleta", img: "http://localhost:5000/public/Transport/3.png" },
+    { title_en: "Airplane", title_ar: "طائرة", title_fr: "Avion", title_es: "Avión", img: "http://localhost:5000/public/Transport/4.png" },
+    { title_en: "Bus", title_ar: "حافلة", title_fr: "Bus", title_es: "Autobús", img: "http://localhost:5000/public/Transport/5.png" },
+    { title_en: "Car", title_ar: "سيارة", title_fr: "Voiture", title_es: "Coche", img: "http://localhost:5000/public/Transport/6.png" },
+    { title_en: "Tram", title_ar: "ترام", title_fr: "Tramway", title_es: "Tranvía", img: "http://localhost:5000/public/Transport/7.png" },
+    { title_en: "Elevator", title_ar: "مصعد", title_fr: "Ascenseur", title_es: "Ascensor", img: "http://localhost:5000/public/Transport/8.png" },
+    { title_en: "Ship", title_ar: "سفينة", title_fr: "Navire", title_es: "Barco", img: "http://localhost:5000/public/Transport/9.png" },
+    { title_en: "Train", title_ar: "قطار", title_fr: "Train", title_es: "Tren", img: "http://localhost:5000/public/Transport/10.png" }
+  ],
+      Medicine: [
       { title_en: "Profen", title_ar: "بروفين", title_fr: "Profén", title_es: "Profen", img: "https://cdn-icons-png.flaticon.com/512/2965/2965567.png" },
     { title_en: "Panadol", title_ar: "بانادول", title_fr: "Panadol", title_es: "Panadol", img: "https://cdn-icons-png.flaticon.com/512/2965/2965567.png" },
     { title_en: "Augmentin", title_ar: "أوجمنتين", title_fr: "Augmentin", title_es: "Augmentin", img: "https://cdn-icons-png.flaticon.com/512/2965/2965567.png" },
@@ -670,6 +698,13 @@ https://cdn-icons-png.flaticon.com/128/6371/6371544.png*/
     { title_en: "Strepsils", title_ar: "ستربسيلز", title_fr: "Strepsils", title_es: "Strepsils", img: "https://cdn-icons-png.flaticon.com/512/2965/2965556.png" },
       // ... add the rest of the medicines here
     ],
+     Afraid : [
+  { title_en: "Insect", title_ar: "حشرة", title_fr: "Insecte", title_es: "Insecto", img: "http://localhost:5000/public/Animals/7shraat.png" },
+  { title_en: "Bird", title_ar: "طائر", title_fr: "Oiseau", title_es: "Pájaro", img: "http://localhost:5000/public/Animals/Bird.png" },
+  { title_en: "Cat", title_ar: "قط", title_fr: "Chat", title_es: "Gato", img: "http://localhost:5000/public/Animals/Cat.png" },
+  { title_en: "Dog", title_ar: "كلب", title_fr: "Chien", title_es: "Perro", img: "http://localhost:5000/public/Animals/Dog.png" },
+  { title_en: "Fish", title_ar: "سمك", title_fr: "Poisson", title_es: "Pescado", img: "http://localhost:5000/public/Animals/Fish.png" },
+],
     Call: [
        { title_en: "Mobile", title_ar: "موبايل", title_fr: "Mobile", title_es: "Móvil", img: "https://cdn-icons-png.flaticon.com/512/15/15920.png" },
     { title_en: "Phone Booth", title_ar: "كشك الهاتف", title_fr: "Cabine téléphonique", title_es: "Cabina telefónica", img: "https://cdn-icons-png.flaticon.com/512/483/483947.png" },
@@ -710,18 +745,20 @@ https://cdn-icons-png.flaticon.com/128/6371/6371544.png*/
     { title_en: "Conversation", title_ar: "محادثة", title_fr: "Conversation", title_es: "Conversación", img: "https://cdn-icons-png.flaticon.com/512/727/727245.png" },
   //add the rest of the listen subicons here
     ],
-    Home:[
-      { title_en: "Living Room", title_ar: "غرفة المعيشة", title_fr: "Salon", title_es: "Sala de estar", img: "https://cdn-icons-png.flaticon.com/512/1046/1046781.png" },
-    { title_en: "Bedroom", title_ar: "غرفة النوم", title_fr: "Chambre", title_es: "Dormitorio", img: "https://cdn-icons-png.flaticon.com/512/1046/1046782.png" },
-    { title_en: "Kitchen", title_ar: "المطبخ", title_fr: "Cuisine", title_es: "Cocina", img: "https://cdn-icons-png.flaticon.com/512/1046/1046783.png" },
-    { title_en: "Bathroom", title_ar: "الحمام", title_fr: "Salle de bain", title_es: "Baño", img: "https://cdn-icons-png.flaticon.com/512/1046/1046784.png" },
-    { title_en: "Garden", title_ar: "الحديقة", title_fr: "Jardin", title_es: "Jardín", img: "https://cdn-icons-png.flaticon.com/512/1046/1046785.png" },
-    { title_en: "Garage", title_ar: "الجراج", title_fr: "Garage", title_es: "Garaje", img: "https://cdn-icons-png.flaticon.com/512/1046/1046786.png" },
-    { title_en: "Balcony", title_ar: "الشرفة", title_fr: "Balcon", title_es: "Balcón", img: "https://cdn-icons-png.flaticon.com/512/1046/1046787.png" },
-    { title_en: "Attic", title_ar: "العُلّية", title_fr: "Grenier", title_es: "Ático", img: "https://cdn-icons-png.flaticon.com/512/1046/1046788.png" },
-    { title_en: "Basement", title_ar: "القبو", title_fr: "Sous-sol", title_es: "Sótano", img: "https://cdn-icons-png.flaticon.com/512/1046/1046789.png" },
-    { title_en: "Hallway", title_ar: "الممر", title_fr: "Couloir", title_es: "Pasillo", img: "https://cdn-icons-png.flaticon.com/512/1046/1046790.png" },
-    ],
+   Home: [
+   { title_en: "Bedroom", title_ar: "غرفة النوم", title_fr: "Chambre", title_es: "Dormitorio", img: "http://localhost:5000/public/Places/bedroom.png" },
+  { title_en: "Bus Station", title_ar: "محطة أتوبيس", title_fr: "Gare routière", title_es: "Estación de autobús", img: "http://localhost:5000/public/Places/busstation.png" },
+  { title_en: "Home", title_ar: "المنزل", title_fr: "Maison", title_es: "Casa", img: "http://localhost:5000/public/Places/home.png" },
+  { title_en: "Hospital", title_ar: "مستشفى", title_fr: "Hôpital", title_es: "Hospital", img: "http://localhost:5000/public/Places/hospital.png" },
+  { title_en: "Kitchen", title_ar: "المطبخ", title_fr: "Cuisine", title_es: "Cocina", img: "http://localhost:5000/public/Places/kitchen.png" },
+  { title_en: "Living Room", title_ar: "غرفة المعيشة", title_fr: "Salon", title_es: "Sala de estar", img: "http://localhost:5000/public/Places/livingroom.png" },
+  { title_en: "Park", title_ar: "الحديقة", title_fr: "Parc", title_es: "Parque", img: "http://localhost:5000/public/Places/park.png" },
+  { title_en: "School", title_ar: "المدرسة", title_fr: "École", title_es: "Escuela", img: "http://localhost:5000/public/Places/school.png" },
+  { title_en: "Supermarket", title_ar: "السوبر ماركت", title_fr: "Supermarché", title_es: "Supermercado", img: "http://localhost:5000/public/Places/supermarket.png" },
+  { title_en: "Toilet", title_ar: "مرحاض", title_fr: "Toilettes", title_es: "Baño", img: "http://localhost:5000/public/Places/toilet.png" },
+  { title_en: "University", title_ar: "جامعة", title_fr: "Université", title_es: "Universidad", img: "http://localhost:5000/public/Places/university.png" },
+  { title_en: "Work", title_ar: "العمل", title_fr: "Travail", title_es: "Trabajo", img: "http://localhost:5000/public/Places/work.png" }
+],
     Breakfast:[
       { title_en: "Bread", title_ar: "خبز", title_fr: "Pain", title_es: "Pan", img: "https://cdn-icons-png.flaticon.com/512/1046/1046781.png" },
     { title_en: "Eggs", title_ar: "بيض", title_fr: "Œufs", title_es: "Huevos", img: "https://cdn-icons-png.flaticon.com/512/1046/1046775.png" },
@@ -774,6 +811,18 @@ https://cdn-icons-png.flaticon.com/128/6371/6371544.png*/
     { title_en: "Coffee", title_ar: "قهوة", title_fr: "Café", title_es: "Café", img: "https://cdn-icons-png.flaticon.com/512/1046/1046787.png" }
   
        ],
+       Family : [
+  { title_en: "Father", title_ar: "أب", title_fr: "Père", title_es: "Padre", img: "http://localhost:5000/public/Family/4.png" },
+  { title_en: "Mother", title_ar: "أم", title_fr: "Mère", title_es: "Madre", img: "http://localhost:5000/public/Family/3.png" },
+  { title_en: "Brother", title_ar: "أخ", title_fr: "Frère", title_es: "Hermano", img: "http://localhost:5000/public/Family/7.png" },
+  { title_en: "Sister", title_ar: "أخت", title_fr: "Sœur", title_es: "Hermana", img: "http://localhost:5000/public/Family/1.png" },
+  { title_en: "Grandfather", title_ar: "جد", title_fr: "Grand-père", title_es: "Abuelo", img: "http://localhost:5000/public/Family/2.png" },
+  { title_en: "Grandmother", title_ar: "جدة", title_fr: "Grand-mère", title_es: "Abuela", img: "http://localhost:5000/public/Family/10.png" },
+  { title_en: "Uncle", title_ar: "عم / خال", title_fr: "Oncle", title_es: "Tío", img: "http://localhost:5000/public/Family/6.png" },
+  { title_en: "Aunt", title_ar: "عمة / خالة", title_fr: "Tante", title_es: "Tía", img: "http://localhost:5000/public/Family/5.png" },
+  { title_en: "Cousin", title_ar: "ابن/ابنة عم أو خال", title_fr: "Cousin(e)", title_es: "Primo/a", img: "http://localhost:5000/public/Family/9.png" },
+  { title_en: "Baby", title_ar: "طفل", title_fr: "Bébé", title_es: "Bebé", img: "http://localhost:5000/public/Family/8.png" }
+],
        TV:[
          { title_en: "News", title_ar: "أخبار", title_fr: "Nouvelles", title_es: "Noticias", img: "https://cdn-icons-png.flaticon.com/512/1046/1046787.png" },
     { title_en: "Series", title_ar: "مسلسلات", title_fr: "Séries", title_es: "Series", img: "https://cdn-icons-png.flaticon.com/512/3595/3595455.png" },

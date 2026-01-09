@@ -8,14 +8,25 @@ import Dashboard from "./pages/Dashboard";
 import Landing from "./pages/Landing"; 
 import SubIconDashboard from "./pages/SubIconDashboard";
 import SubIconDetails from "./pages/SubIconDetails";
+import Login from "./pages/Login";   // <-- تأكدي أن عندك Login.js
+import Signup from "./pages/Signup"; // <-- Signup.js لو هتستخدميه
 import '@fortawesome/fontawesome-free/css/all.min.css';
+import Settings from "./pages/settings";
 
 const App = () => (
-  <Router>
     <Routes>
+       {/* Login Page - يفتح أولاً */}
+      <Route path="/" element={<Login />} />
 
-      {/* Landing Page */}
-      <Route path="/" element={<ErrorBoundary><Landing /></ErrorBoundary>} />
+      {/* Signup Page */}
+      <Route path="/signup" element={<Signup />} />
+      <Route path="/settings" element={<Settings />} />
+      {/* Landing Page - بعد Login */}
+      <Route path="/landing" element={<ErrorBoundary><Landing /></ErrorBoundary>} />
+
+
+       {/*Landing Page*/ }
+      {/*<Route path="/" element={<ErrorBoundary><Landing /></ErrorBoundary>} />*/}
 
       <Route path="/category" element={<ErrorBoundary><Category /></ErrorBoundary>} />
 
@@ -30,7 +41,6 @@ const App = () => (
 
 
     </Routes>
-  </Router>
 );
 
 export default App;

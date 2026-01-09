@@ -1,4 +1,4 @@
-.App {
+/*.App {
   text-align: center;
 }
 
@@ -35,4 +35,20 @@
   to {
     transform: rotate(360deg);
   }
+}*/
+/*.App {
+  text-align: center;
+  background-color: var(--bg-color);
+  color: var(--text-color);
 }
+
+.App-header {
+  background-color: var(--header-bg);
+  color: var(--text-color);
+}
+
+.App-link {
+  color: var(--link-color);
+  transition: color 0.3s;
+}
+*/

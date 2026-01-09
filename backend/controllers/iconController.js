@@ -1,3 +1,4 @@
+
 /*import { PrismaClient } from "@prisma/client";
 const prisma = new PrismaClient();
 
@@ -330,4 +331,3 @@ export const deleteSubIcon = async (req, res) => {
     res.status(500).json({ message: "Error deleting subIcon", error: err.message });
   }
 };
-

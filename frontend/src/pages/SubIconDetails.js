@@ -1,13 +1,13 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState, useRef, useContext } from "react";
 import { useParams } from "react-router-dom";
 import { getSubIconById } from "../api/iconApi";
 import { speakText } from "../api/tts-translate-api";
 import "@fortawesome/fontawesome-free/css/all.min.css";
-import { useLanguage } from "../context/LanguageContext";
+import { AppContext } from "../context/AppContext"; // AppContext
 
 const SubIconDetails = () => {
   const { iconId, subIconId } = useParams();
-  const { lang } = useLanguage();
+  const { language: lang, theme } = useContext(AppContext);
 
   const [subIcon, setSubIcon] = useState(null);
   const [displayTitle, setDisplayTitle] = useState("");
@@ -86,31 +86,59 @@ const SubIconDetails = () => {
 
   if (!subIcon) return <p className="text-center mt-5">Loading...</p>;
 
+  // ================= THEMING =================
+  const bgColor = theme === "dark" ? "#232323" : theme === "high-contrast" ? "#000000" : "#f8f9fa";
+  const textColor = theme === "dark" ? "#f7f7f7" : theme === "high-contrast" ? "#ffff00" : "#212529";
+  const cardBg = theme === "dark" ? "#2c2c2c" : theme === "high-contrast" ? "#000000" : "#fff";
+  const controlBg = theme === "dark" ? "#2c2c2c" : theme === "high-contrast" ? "#000000" : "#343a40";
+  const iconHoverBg = theme === "high-contrast" ? "#ffff00" : "#e0e0e0";
+
   return (
     <div
-      className="d-flex justify-content-center align-items-center bg-light"
-      style={{ minHeight: "100vh", padding: "2rem" }}
+      className="d-flex justify-content-center align-items-center"
+      style={{ minHeight: "100vh", padding: "2rem", backgroundColor: bgColor, color: textColor }}
     >
       <div
         className="card shadow-lg p-4 rounded-4 d-flex flex-row align-items-start"
-        style={{ maxWidth: "900px", width: "100%", gap: "24px" }}
+        style={{
+          maxWidth: "900px",
+          width: "100%",
+          gap: "24px",
+          backgroundColor: cardBg,
+          color: textColor,
+          transition: "background-color 0.3s, color 0.3s",
+        }}
       >
         {/* LEFT ICON */}
-        <div className="text-center" style={{ minWidth: 280 }}>
+        <div
+          className="text-center"
+          style={{ minWidth: 280, transition: "transform 0.3s" }}
+        >
           {subIcon.imageUrl ? (
             <img
               src={subIcon.imageUrl}
               alt={displayTitle}
               className="img-fluid rounded-3 shadow-sm"
-              style={{ width: 250, height: 250, objectFit: "cover" }}
-              onError={(e) =>
-                (e.target.src = "https://via.placeholder.com/250")
-              }
+              style={{
+                width: 250,
+                height: 250,
+                objectFit: "cover",
+                transition: "transform 0.3s",
+              }}
+              onMouseOver={(e) => (e.currentTarget.style.transform = "scale(1.05)")}
+              onMouseOut={(e) => (e.currentTarget.style.transform = "scale(1)")}
+              onError={(e) => (e.target.src = "https://via.placeholder.com/250")}
             />
           ) : (
             <i
               className={`fa-solid fa-${subIcon.iconName}`}
-              style={{ fontSize: 250, color: "#333" }}
+              style={{
+                fontSize: 250,
+                color: textColor,
+                transition: "transform 0.3s",
+              }}
+              onMouseOver={(e) => (e.currentTarget.style.transform = "scale(1.05)")}
+              onMouseOut={(e) => (e.currentTarget.style.transform = "scale(1)")}
             />
           )}
         </div>
@@ -118,7 +146,7 @@ const SubIconDetails = () => {
         {/* RIGHT CONTENT */}
         <div style={{ width: "100%" }}>
           <h2 className="fw-bold mb-2">{displayTitle}</h2>
-          <p className="text-muted fs-5 mb-3">{displayExpression}</p>
+          <p className="fs-5 mb-3">{displayExpression}</p>
 
           {/* SPEAK BUTTON */}
           <button
@@ -126,14 +154,21 @@ const SubIconDetails = () => {
             onClick={handleSpeak}
             disabled={speaking || !displayExpression}
           >
-            {speaking ? "Speaking..." : "🔊 Speak"}
+            {speaking ? (lang === "ar" ? "يتحدث..." : "Speaking...") : "🔊 Speak"}
           </button>
 
           {/* CONTROLS */}
-          <div className="p-3 rounded-3 bg-dark text-white">
+          <div
+            className="p-3 rounded-3"
+            style={{
+              backgroundColor: controlBg,
+              color: textColor,
+              transition: "background-color 0.3s, color 0.3s",
+            }}
+          >
             {/* Volume */}
             <div className="d-flex align-items-center gap-3 mb-2">
-              <label style={{ minWidth: 60 }}>Volume</label>
+              <label style={{ minWidth: 60 }}>{lang === "ar" ? "الصوت" : "Volume"}</label>
               <input
                 type="range"
                 min="0"
@@ -148,7 +183,7 @@ const SubIconDetails = () => {
 
             {/* Speed */}
             <div className="d-flex align-items-center gap-3">
-              <label style={{ minWidth: 60 }}>Speed</label>
+              <label style={{ minWidth: 60 }}>{lang === "ar" ? "السرعة" : "Speed"}</label>
               <input
                 type="range"
                 min="0.5"

@@ -1,4 +1,4 @@
-import React from "react";
+/*import React from "react";
 import { useNavigate } from "react-router-dom";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css"; 
@@ -94,7 +94,7 @@ const Category = () => {
       <h1 className="text-center mb-2" style={{ color: "red", fontWeight: "bold" }}>{t.welcome}</h1>
       <h4 className="text-center mb-3">{t.chooseCategory}</h4>
 
-      {/* Language selector */}
+      {/* Language selector *}
       <h5 className="text-center mb-2">{t.chooseLang}</h5>
       <div className="d-flex justify-content-center mb-4">
         <select className="form-select w-auto" value={lang} onChange={(e) => setLang(e.target.value)}>
@@ -138,4 +138,362 @@ const Category = () => {
   );
 };
 
+export default Category;*/
+/*import React, { useContext } from "react";
+import { useNavigate } from "react-router-dom";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css"; 
+import "slick-carousel/slick/slick-theme.css";
+import "bootstrap/dist/css/bootstrap.min.css";
+import { AppContext } from "../context/AppContext";
+
+/* =======================
+   Categories data
+======================= *
+const categories = [
+  { 
+    name: { en: "Real Life", ar: "الحياة الواقعية", fr: "La vie réelle", es: "Vida real" }, 
+    image: "https://www.creativefabrica.com/wp-content/uploads/2022/08/24/Daily-Fonts-36960332-1.png"
+  },
+  { 
+    name: { en: "Feelings", ar: "المشاعر", fr: "Sentiments", es: "Sentimientos" }, 
+    image: "https://d2gg9evh47fn9z.cloudfront.net/1600px_COLOURBOX44167268.jpg"
+  },
+  { 
+    name: { en: "Communication", ar: "التواصل", fr: "Communication", es: "Comunicación" }, 
+    image: "https://thumbs.dreamstime.com/b/hand-writing-communication-text-drawings-graphics-digital-composite-90340922.jpg"
+  },
+  { 
+    name: { en: "Additional", ar: "إضافي", fr: "Supplémentaire", es: "Adicional" }, 
+    image: "https://thumbs.dreamstime.com/b/additional-gold-text-black-background-d-rendered-royalty-free-stock-picture-image-can-be-used-online-website-banner-87918189.jpg"
+  },
+  { 
+    name: { en: "All", ar: "الكل", fr: "Tout", es: "Todo" }, 
+    image: "https://st4.depositphotos.com/1008851/29267/v/1600/depositphotos_292674954-stock-illustration-life-text-grunge-blots-background.jpg"
+  },
+];
+
+/* =======================
+   Page translations
+======================= *
+const translations = {
+  en: {
+    welcome: "Welcome to Voxi",
+    chooseCategory: "Choose your category",
+  },
+  ar: {
+    welcome: "مرحبًا بك في فوكسّي",
+    chooseCategory: "اختر فئتك",
+  },
+  fr: {
+    welcome: "Bienvenue dans Voxi",
+    chooseCategory: "Choisissez votre catégorie",
+  },
+  es: {
+    welcome: "Bienvenido a Voxi",
+    chooseCategory: "Elige tu categoría",
+  },
+};
+
+/* =======================
+   Custom Arrow
+======================= *
+const CustomArrow = ({ className, style, onClick, direction }) => (
+  <div
+    className={className}
+    style={{
+      ...style,
+      display: "flex",
+      justifyContent: "center",
+      alignItems: "center",
+      background: "var(--header-bg)",
+      borderRadius: "50%",
+      width: "40px",
+      height: "40px",
+      zIndex: 2,
+      fontSize: "24px",
+      color: "var(--text-color)",
+      cursor: "pointer",
+    }}
+    onClick={onClick}
+  >
+    {direction === "left" ? "‹" : "›"}
+  </div>
+);
+
+/* =======================
+   Component
+======================= *
+const Category = () => {
+  const navigate = useNavigate();
+  const { language } = useContext(AppContext);
+
+  const t = translations[language];
+
+  const handleClick = (cat) => {
+    const nameEn = cat.name.en;
+    nameEn === "All"
+      ? navigate("/home")
+      : navigate(`/dashboard/${nameEn}`);
+  };
+
+  const settings = {
+    dots: false,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 3,
+    centerMode: true,
+    centerPadding: "0px",
+    nextArrow: <CustomArrow direction="right" />,
+    prevArrow: <CustomArrow direction="left" />,
+    responsive: [
+      { breakpoint: 768, settings: { slidesToShow: 1, centerMode: false } },
+    ],
+  };
+
+  return (
+    <div
+      className="container mt-5"
+      style={{
+        minHeight: "100vh",
+        backgroundColor: "var(--bg-color)",
+        color: "var(--text-color)",
+      }}
+    >
+      <h1
+        className="text-center fw-bold mb-2"
+        style={{ color: "var(--link-color)" }}
+      >
+        {t.welcome}
+      </h1>
+
+      <h4 className="text-center mb-5">{t.chooseCategory}</h4>
+
+      {/* Slider *}
+      <Slider {...settings}>
+        {categories.map((cat, i) => (
+          <div key={i} className="px-2">
+            <div
+              className="card rounded-4 shadow-sm text-center"
+              style={{
+                cursor: "pointer",
+                backgroundColor: "var(--card-bg)",
+                transition: "all 0.3s ease",
+              }}
+              onClick={() => handleClick(cat)}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.transform = "scale(1.08)";
+                e.currentTarget.style.boxShadow =
+                  "0 12px 30px rgba(0,0,0,0.25)";
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.transform = "scale(1)";
+                e.currentTarget.style.boxShadow =
+                  "0 5px 15px rgba(0,0,0,0.1)";
+              }}
+            >
+              <img
+                src={cat.image}
+                alt={cat.name[language]}
+                className="rounded-top"
+                style={{
+                  height: "180px",
+                  width: "100%",
+                  objectFit: "cover",
+                }}
+              />
+              <div className="card-body">
+                <h5 className="fw-bold">{cat.name[language]}</h5>
+              </div>
+            </div>
+          </div>
+        ))}
+      </Slider>
+    </div>
+  );
+};
+
+export default Category;*/
+import React, { useContext } from "react";
+import { useNavigate } from "react-router-dom";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import "bootstrap/dist/css/bootstrap.min.css";
+import { AppContext } from "../context/AppContext";
+
+/* =======================
+   Categories data
+======================= */
+const categories = [
+  {
+    name: { en: "Real Life", ar: "الحياة الواقعية", fr: "La vie réelle", es: "Vida real" },
+    image: "https://www.creativefabrica.com/wp-content/uploads/2022/08/24/Daily-Fonts-36960332-1.png",
+  },
+  {
+    name: { en: "Feelings", ar: "المشاعر", fr: "Sentiments", es: "Sentimientos" },
+    image: "https://d2gg9evh47fn9z.cloudfront.net/1600px_COLOURBOX44167268.jpg",
+  },
+  {
+    name: { en: "Communication", ar: "التواصل", fr: "Communication", es: "Comunicación" },
+    image: "https://thumbs.dreamstime.com/b/hand-writing-communication-text-drawings-graphics-digital-composite-90340922.jpg",
+  },
+  {
+    name: { en: "Additional", ar: "إضافي", fr: "Supplémentaire", es: "Adicional" },
+    image: "https://thumbs.dreamstime.com/b/additional-gold-text-black-background-d-rendered-royalty-free-stock-picture-image-can-be-used-online-website-banner-87918189.jpg",
+  },
+  {
+    name: { en: "All", ar: "الكل", fr: "Tout", es: "Todo" },
+    image: "https://st4.depositphotos.com/1008851/29267/v/1600/depositphotos_292674954-stock-illustration-life-text-grunge-blots-background.jpg",
+  },
+];
+
+/* =======================
+   Translations
+======================= */
+const translations = {
+  en: {
+    welcome: "Welcome to Voxi",
+    chooseCategory: "Choose your category",
+  },
+  ar: {
+    welcome: "مرحبًا بك في فوكسّي",
+    chooseCategory: "اختر فئتك",
+  },
+  fr: {
+    welcome: "Bienvenue dans Voxi",
+    chooseCategory: "Choisissez votre catégorie",
+  },
+  es: {
+    welcome: "Bienvenido a Voxi",
+    chooseCategory: "Elige tu categoría",
+  },
+};
+
+/* =======================
+   Custom Arrow
+======================= */
+const CustomArrow = ({ className, style, onClick, direction }) => (
+  <div
+    className={className}
+    style={{
+      ...style,
+      display: "flex",
+      justifyContent: "center",
+      alignItems: "center",
+      background: "var(--header-bg)",
+      borderRadius: "50%",
+      width: "40px",
+      height: "40px",
+      zIndex: 2,
+      fontSize: "24px",
+      color: "var(--text-color)",
+      cursor: "pointer",
+    }}
+    onClick={onClick}
+  >
+    {direction === "left" ? "‹" : "›"}
+  </div>
+);
+
+/* =======================
+   Component
+======================= */
+const Category = () => {
+  const navigate = useNavigate();
+  const { language } = useContext(AppContext);
+
+  const t = translations[language];
+
+  const handleClick = (cat) => {
+    const nameEn = cat.name.en;
+    nameEn === "All"
+      ? navigate("/home")
+      : navigate(`/dashboard/${nameEn}`);
+  };
+
+  const settings = {
+    dots: false,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 3,
+    centerMode: true,
+    centerPadding: "0px",
+    nextArrow: <CustomArrow direction="right" />,
+    prevArrow: <CustomArrow direction="left" />,
+    responsive: [
+      { breakpoint: 768, settings: { slidesToShow: 1, centerMode: false } },
+    ],
+  };
+
+  return (
+    /* 🔥 Wrapper ماسك الصفحة كلها */
+    <div
+      style={{
+        minHeight: "100vh",
+        backgroundColor: "var(--bg-color)",
+        color: "var(--text-color)",
+        paddingTop: "40px",
+      }}
+    >
+      <div className="container-fluid px-4">
+        <h1
+          className="text-center fw-bold mb-2"
+          style={{ color: "var(--link-color)" }}
+        >
+          {t.welcome}
+        </h1>
+
+        <h4 className="text-center mb-5">
+          {t.chooseCategory}
+        </h4>
+
+        <Slider {...settings}>
+          {categories.map((cat, i) => (
+            <div key={i} className="px-2">
+              <div
+                className="card rounded-4 shadow-sm text-center"
+                style={{
+                  cursor: "pointer",
+                  backgroundColor: "var(--card-bg)",
+                  color: "var(--text-color)",
+                  transition: "all 0.3s ease",
+                }}
+                onClick={() => handleClick(cat)}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.transform = "scale(1.08)";
+                  e.currentTarget.style.boxShadow =
+                    "0 12px 30px rgba(0,0,0,0.25)";
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.transform = "scale(1)";
+                  e.currentTarget.style.boxShadow =
+                    "0 5px 15px rgba(0,0,0,0.1)";
+                }}
+              >
+                <img
+                  src={cat.image}
+                  alt={cat.name[language]}
+                  className="rounded-top"
+                  style={{
+                    height: "180px",
+                    width: "100%",
+                    objectFit: "cover",
+                  }}
+                />
+                <div className="card-body">
+                  <h5 className="fw-bold">{cat.name[language]}</h5>
+                </div>
+              </div>
+            </div>
+          ))}
+        </Slider>
+      </div>
+    </div>
+  );
+};
+
 export default Category;
+
+
+

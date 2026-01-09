@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { getIconById } from "../api/iconApi"; 
 import { Modal, Button, Form } from "react-bootstrap";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import { speakText } from "../api/tts-translate-api";
-import { useLanguage } from "../context/LanguageContext";
+import { AppContext } from "../context/AppContext"; // استخدم AppContext
 
 const timeOptionsByLang = {
   en: ["Today", "Yesterday", "Tomorrow"],
@@ -24,7 +24,7 @@ const connectorOptionsByLang = {
 const SubIconDashboard = () => {
   const { iconId } = useParams();
   const navigate = useNavigate();
-  const { lang } = useLanguage();
+  const { language: lang, theme } = useContext(AppContext); // AppContext
 
   const [icon, setIcon] = useState(null);
   const [subIcons, setSubIcons] = useState([]);
@@ -122,9 +122,15 @@ const SubIconDashboard = () => {
            expr.toLowerCase().includes(searchTerm.toLowerCase());
   });
 
+  /* ====== Styles حسب الثيم ====== */
+  const bgColor = theme === "dark" ? "#232323" : theme === "high-contrast" ? "#000000" : "#fff";
+  const textColor = theme === "dark" ? "#f7f7f7" : theme === "high-contrast" ? "#ffff00" : "#232323";
+  const cardBg = theme === "dark" ? "#2c2c2c" : theme === "high-contrast" ? "#000000" : "#fff";
+  const modalBg = theme === "dark" ? "#2c2c2c" : theme === "high-contrast" ? "#000000" : "#fff";
+
   return (
-    <div className="container mt-4">
-      <h1 className="text-center mb-4" style={{ color: "red", fontWeight: "bold" }}>
+    <div style={{ minHeight: "100vh", backgroundColor: bgColor, color: textColor, padding: "20px" }}>
+      <h1 className="text-center mb-4" style={{ fontWeight: "bold", color: theme === "dark" ? "#61dafb" : "red" }}>
         {icon?.title || "Sub Icons"}
       </h1>
 
@@ -132,10 +138,10 @@ const SubIconDashboard = () => {
       <div className="d-flex flex-wrap justify-content-start align-items-center mb-3 gap-2">
         <Form.Control
           type="text"
-          placeholder="Search sub-icons..."
+          placeholder={lang === "ar" ? "ابحث عن الأيقونات الفرعية..." : "Search sub-icons..."}
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
-          style={{ width: "200px", marginLeft: "10px" }}
+          style={{ width: "200px" }}
         />
 
         <Form.Select
@@ -155,15 +161,17 @@ const SubIconDashboard = () => {
         </Form.Select>
 
         <Button variant="primary" onClick={handleSpeak} disabled={speaking || selectedIds.length === 0}>
-          {speaking ? "Speaking..." : "🔊 Speak"}
+          {speaking ? (lang === 'ar' ? "يتحدث..." : "Speaking...") : "🔊 Speak"}
         </Button>
 
-        <Button variant="primary" onClick={() => setShowModal(true)}>Add SubIcon</Button>
+        <Button variant="primary" onClick={() => setShowModal(true)}>
+          {lang === 'ar' ? "أضف أيقونة فرعية" : "Add SubIcon"}
+        </Button>
       </div>
 
       {/* Dynamic sentence */}
       {selectedIds.length > 0 && (
-        <div className="mb-3 p-2 bg-light border rounded">
+        <div className="mb-3 p-2 border rounded" style={{ backgroundColor: cardBg, color: textColor }}>
           <strong>Sentence: </strong>
           {generateSentence()}
         </div>
@@ -178,7 +186,8 @@ const SubIconDashboard = () => {
               style={{
                 cursor: "pointer",
                 height: "250px",
-                backgroundColor: selectedIds.includes(icon.id) ? "#d4edda" : "white",
+                backgroundColor: selectedIds.includes(icon.id) ? "#d4edda" : cardBg,
+                color: textColor,
               }}
               onClick={() => navigate(`/subicondetails/${iconId}/${icon.id}`)}
             >
@@ -195,10 +204,10 @@ const SubIconDashboard = () => {
                   src={icon.imageUrl}
                   alt={icon[`title_${lang}`] || icon.title_en}
                   className="img-fluid w-100 h-100"
-                  style={{ objectFit: "cover", transition: "transform 0.3s ease" }}
+                  style={{ transition: "transform 0.3s ease" }}
                   onMouseOver={e => (e.currentTarget.style.transform = "scale(1.05)")}
                   onMouseOut={e => (e.currentTarget.style.transform = "scale(1)")}
-                  onError={e => (e.target.src = "https://via.placeholder.com/250")}
+                  onError={e => (e.target.src = "/public/default.jpg")}
                 />
               ) : (
                 <i
@@ -208,12 +217,12 @@ const SubIconDashboard = () => {
                     top: "50%",
                     left: "50%",
                     transform: "translate(-50%, -50%)",
-                    color: "#333",
+                    color: textColor,
                   }}
                 ></i>
               )}
 
-              <div className="position-absolute bottom-0 w-100 text-white p-2" style={{ background: "rgba(0,0,0,0.5)", textAlign: "center" }}>
+              <div className="position-absolute bottom-0 w-100 p-2" style={{ background: "rgba(0,0,0,0.5)", textAlign: "center" }}>
                 <h5 className="mb-1">{icon[`title_${lang}`] || icon.title_en}</h5>
                 <p className="mb-0" style={{ fontSize: "0.9rem" }}>{icon[`expression_${lang}`] || icon.expression_en}</p>
               </div>
@@ -224,33 +233,33 @@ const SubIconDashboard = () => {
 
       {/* Modal */}
       <Modal show={showModal} onHide={() => setShowModal(false)} centered>
-        <Modal.Header closeButton>
-          <Modal.Title>Add New SubIcon</Modal.Title>
+        <Modal.Header closeButton style={{ backgroundColor: modalBg, color: textColor }}>
+          <Modal.Title>{lang === 'ar' ? "إضافة أيقونة فرعية جديدة" : "Add New SubIcon"}</Modal.Title>
         </Modal.Header>
-        <Modal.Body>
+        <Modal.Body style={{ backgroundColor: modalBg, color: textColor }}>
           <Form>
             <Form.Group className="mb-3">
-              <Form.Label>Title</Form.Label>
+              <Form.Label>{lang === 'ar' ? "العنوان" : "Title"}</Form.Label>
               <Form.Control
                 type="text"
-                placeholder="Enter sub-icon title"
+                placeholder={lang === 'ar' ? "أدخل عنوان الأيقونة الفرعية" : "Enter sub-icon title"}
                 name="title"
                 value={newSubIcon.title}
                 onChange={handleInputChange}
               />
             </Form.Group>
             <Form.Group className="mb-3">
-              <Form.Label>Expression</Form.Label>
+              <Form.Label>{lang === 'ar' ? "التعبير" : "Expression"}</Form.Label>
               <Form.Control
                 type="text"
-                placeholder="Enter sub-icon expression"
+                placeholder={lang === 'ar' ? "أدخل تعبير الأيقونة الفرعية" : "Enter sub-icon expression"}
                 name="expression"
                 value={newSubIcon.expression}
                 onChange={handleInputChange}
               />
             </Form.Group>
             <Form.Group className="mb-3">
-              <Form.Label>FontAwesome Icon Name</Form.Label>
+              <Form.Label>{lang === 'ar' ? "اسم أيقونة FontAwesome" : "FontAwesome Icon Name"}</Form.Label>
               <Form.Control
                 type="text"
                 placeholder="e.g., coffee, face-smile"
@@ -261,14 +270,16 @@ const SubIconDashboard = () => {
             </Form.Group>
           </Form>
         </Modal.Body>
-        <Modal.Footer>
-          <Button variant="secondary" onClick={() => setShowModal(false)}>Cancel</Button>
+        <Modal.Footer style={{ backgroundColor: modalBg, color: textColor }}>
+          <Button variant="secondary" onClick={() => setShowModal(false)}>
+            {lang === 'ar' ? "إلغاء" : "Cancel"}
+          </Button>
           <Button
             variant="primary"
             onClick={handleAddSubIcon}
             disabled={!newSubIcon.title.trim() || !newSubIcon.expression.trim() || !newSubIcon.iconName.trim()}
           >
-            Add SubIcon
+            {lang === 'ar' ? "أضف أيقونة فرعية" : "Add SubIcon"}
           </Button>
         </Modal.Footer>
       </Modal>
@@ -277,3 +288,4 @@ const SubIconDashboard = () => {
 };
 
 export default SubIconDashboard;
+

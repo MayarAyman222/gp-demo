@@ -6,7 +6,6 @@ datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
-
 model Icon {
   id            Int       @id @default(autoincrement())
   title_en      String    @unique
@@ -18,7 +17,8 @@ model Icon {
   expression_fr String
   expression_es String
   createdAt     DateTime  @default(now())
-  iconName      String    @default("")
+  iconName      String?   // nullable
+  imgUrl        String?   // nullable
   category      String
   subIcons      SubIcon[]
 }
@@ -39,3 +39,23 @@ model SubIcon {
   icon          Icon      @relation(fields: [iconId], references: [id])
   @@unique([title_en, iconId])
 }
+
+
+model User {
+  id          Int      @id @default(autoincrement())
+  firstName   String
+  lastName    String
+  email       String   @unique
+  password    String
+  condition   Condition
+  createdAt   DateTime @default(now())
+}
+
+enum Condition {
+  AUTISM
+  STROKE
+  ALZHEIMER
+  SPEECH_DELAY
+  OTHER
+}
+

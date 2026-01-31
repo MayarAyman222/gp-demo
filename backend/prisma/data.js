@@ -17,6 +17,7 @@ export const icons = [
     title_ar: "شرب",
     title_fr: "Boire",
     title_es: "Beber",
+    
     expression_en: "I want to drink",
     expression_ar: "أريد أن أشرب",
     expression_fr: "Je veux boire",
